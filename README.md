@@ -41,4 +41,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## install dependencies
 tailwindcss
-
+--Install tailwindcss via npm, and create your tailwind.config.js file.
+--Add the paths to all of your template files in your tailwind.config.js file.
+--Add the @tailwind directives for each of Tailwind’s layers to your main CSS file.
+Syncfusion
