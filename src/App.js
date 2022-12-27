@@ -49,22 +49,22 @@ function App() {
 
                     <div>
                         <Routes>
-                            {/*dashboard*/}
-                            <Route path="/" element={<Ecommerce/>}/>
-                            <Route path="/ecommerce" element={<Ecommerce/>}/>
+                            {/* dashboard  */}
+                            <Route path="/" element={(<Ecommerce />)} />
+                            <Route path="/ecommerce" element={(<Ecommerce />)} />
 
-                            {/*pages*/}
-                            <Route path="/orders" element={<Orders/>}/>
+                            {/* pages  */}
+                            <Route path="/orders" element={<Orders />} />
                             <Route path="/employees" element={<Employees />} />
                             <Route path="/customers" element={<Customers />} />
 
-                            {/*apps*/}
+                            {/* apps  */}
                             <Route path="/kanban" element={<Kanban />} />
                             <Route path="/editor" element={<Editor />} />
                             <Route path="/calendar" element={<Calendar />} />
                             <Route path="/color-picker" element={<ColorPicker />} />
 
-                            {/*charts*/}
+                            {/* charts  */}
                             <Route path="/line" element={<Line />} />
                             <Route path="/area" element={<Area />} />
                             <Route path="/bar" element={<Bar />} />
@@ -74,7 +74,6 @@ function App() {
                             <Route path="/pyramid" element={<Pyramid />} />
                             <Route path="/stacked" element={<Stacked />} />
                         </Routes>
-
                     </div>
 
                 </div>
