@@ -36,7 +36,8 @@ const Navbar = () => {
         isClicked,
         handleClick,
         screenSize,
-        setScreenSize
+        setScreenSize,
+        currentColor,
     } = useStateContext();
 
     //everytime it resizes, we will set screen size to specific size
@@ -64,22 +65,22 @@ const Navbar = () => {
     return (
         <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
             <NavButton title="Menu" customFunc={handleActiveMenu}
-                       color="blue" icon={<AiOutlineMenu/>}/>
+                       color={currentColor} icon={<AiOutlineMenu/>}/>
 
             <div className="flex">
                 <NavButton title="Cart" customFunc={() =>
                     handleClick('cart')}
-                           color="blue" icon={<FiShoppingCart/>}
+                           color={currentColor} icon={<FiShoppingCart/>}
                 />
                 <NavButton title="Chat" customFunc={() =>
                     handleClick("chat")}
                            dotColor="#03C9D7"
-                           color="blue" icon={<BsChatLeft/>}
+                           color={currentColor} icon={<BsChatLeft/>}
                 />
                 <NavButton title="Notification" customFunc={() =>
                     handleClick("notification")}
                            dotColor="rgb(254, 201, 15)"
-                           color="blue" icon={<RiNotification3Line/>}
+                           color={currentColor} icon={<RiNotification3Line/>}
                 />
                 <TooltipComponent content="Profile" position="BottomCenter">
                     <div
