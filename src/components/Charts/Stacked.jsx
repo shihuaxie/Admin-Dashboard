@@ -16,7 +16,7 @@ const Stacked = ({ width, height }) => {
             height={height}
             chartArea={{ border: { width: 0 } }}
             tooltip={{ enable: true }}
-            background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+            background={currentMode === 'Dark' ? '#aeb3bd' : '#fff'}
             legendSettings={{ background: 'white' }}
         >
             <Inject services={[StackingColumnSeries, Category, Legend, Tooltip]} />
