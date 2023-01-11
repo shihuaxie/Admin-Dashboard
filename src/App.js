@@ -66,7 +66,8 @@ function App() {
 
                         <div>
                             {/*only show things when it's true*/}
-                            {themeSettings && <ThemeSettings/>}
+                            {themeSettings && (<ThemeSettings/>)}
+
                             <Routes>
                                 {/* dashboard  */}
                                 <Route path="/" element={(<Ecommerce/>)}/>

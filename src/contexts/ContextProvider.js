@@ -23,6 +23,7 @@ export const ContextProvider = ({children}) =>{
 
     const [themeSettings, setThemeSettings] = useState(false);
 
+
     const setMode = (e) => {
 
         setCurrentMode(e.target.value);
@@ -53,7 +54,7 @@ export const ContextProvider = ({children}) =>{
                 currentMode, setCurrentMode,
                 currentColor, setCurrentColor,
                 themeSettings, setThemeSettings,
-                setMode, setColor
+                setMode, setColor,
         }}>
             {children}
         </StateContext.Provider>
