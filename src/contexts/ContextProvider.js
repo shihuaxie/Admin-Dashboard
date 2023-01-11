@@ -1,58 +1,37 @@
-import React, {createContext, useContext, useState} from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
 
 const initialState = {
-    cart: false,
     chat: false,
+    cart: false,
     userProfile: false,
     notification: false,
-}
+};
 
-export const ContextProvider = ({children}) => {
-
-    const [activeMenu, setActiveMenu] = useState(true);
-
-    const [isClicked, setIsClicked] = useState(initialState);
-
+export const ContextProvider = ({ children }) => {
     const [screenSize, setScreenSize] = useState(undefined);
-
     const [currentColor, setCurrentColor] = useState('#03C9D7');
-
     const [currentMode, setCurrentMode] = useState('Light');
-
     const [themeSettings, setThemeSettings] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(true);
+    const [isClicked, setIsClicked] = useState(initialState);
 
     const setMode = (e) => {
         setCurrentMode(e.target.value);
         localStorage.setItem('themeMode', e.target.value);
-        // when the user clicked a mode, the setting part will close automatically
-        //setThemeSettings(false);
-    }
+    };
 
     const setColor = (color) => {
         setCurrentColor(color);
         localStorage.setItem('colorMode', color);
-        //setThemeSettings(false);
-    }
+    };
 
-    // we pass the clicked item into handleClick func, then set the value of initialState to be true
-    const handleClick = (clicked) => setIsClicked({...initialState, [clicked]: true})
+    const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
 
     return (
-        <StateContext.Provider
-            value={{
-                initialState,
-                activeMenu, setActiveMenu,
-                isClicked, setIsClicked,
-                handleClick,
-                screenSize, setScreenSize,
-                currentMode, setCurrentMode,
-                currentColor, setCurrentColor,
-                themeSettings, setThemeSettings,
-                setMode, setColor
-            }}>
-            {children}
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
+        <StateContext.Provider value={{ currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>
             {children}
         </StateContext.Provider>
     );
