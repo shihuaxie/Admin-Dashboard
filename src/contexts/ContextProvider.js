@@ -4,12 +4,12 @@ const StateContext = createContext();
 
 const initialState = {
     cart: false,
-    chat:false,
-    userProfile:false,
+    chat: false,
+    userProfile: false,
     notification: false,
 }
 
-export const ContextProvider = ({children}) =>{
+export const ContextProvider = ({children}) => {
 
     const [activeMenu, setActiveMenu] = useState(true);
 
@@ -24,28 +24,25 @@ export const ContextProvider = ({children}) =>{
     const [themeSettings, setThemeSettings] = useState(false);
 
     const setMode = (e) => {
-
         setCurrentMode(e.target.value);
-
         localStorage.setItem('themeMode', e.target.value);
         // when the user clicked a mode, the setting part will close automatically
-        setThemeSettings(false);
+        //setThemeSettings(false);
     }
 
     const setColor = (color) => {
         setCurrentColor(color);
-
         localStorage.setItem('colorMode', color);
-
-        setThemeSettings(false);
+        //setThemeSettings(false);
     }
 
     // we pass the clicked item into handleClick func, then set the value of initialState to be true
-    const handleClick = (clicked) => {setIsClicked({ ...initialState, [clicked]: true });}
+    const handleClick = (clicked) => setIsClicked({...initialState, [clicked]: true})
 
     return (
         <StateContext.Provider
             value={{
+                initialState,
                 activeMenu, setActiveMenu,
                 isClicked, setIsClicked,
                 handleClick,
@@ -54,10 +51,11 @@ export const ContextProvider = ({children}) =>{
                 currentColor, setCurrentColor,
                 themeSettings, setThemeSettings,
                 setMode, setColor
-        }}>
+            }}>
+            {children}
             {children}
         </StateContext.Provider>
-    )
-}
+    );
+};
 
 export const useStateContext = () => useContext(StateContext);
